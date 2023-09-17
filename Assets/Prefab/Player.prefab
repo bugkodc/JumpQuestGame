@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 5233729217271060260}
   - component: {fileID: 8932337775731436007}
   - component: {fileID: 5225907542623024798}
-  m_Layer: 0
+  - component: {fileID: 8571801910483036000}
+  - component: {fileID: 3424620035708267439}
+  m_Layer: 8
   m_Name: Player
   m_TagString: player
   m_Icon: {fileID: 0}
@@ -29,9 +31,9 @@ Transform:
   m_GameObject: {fileID: 2263963073068865181}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.09, y: -1.15, z: 0}
+  m_LocalPosition: {x: -6.93, y: 2.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -180,3 +182,38 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8571801910483036000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2263963073068865181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55adb17747f75b047b96266c984b94a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 5
+  _powjump: 7
+  _Whatlayerground:
+    serializedVersion: 2
+    m_Bits: 64
+  _groundRadius: 1.1
+  _Whatlayerwall:
+    serializedVersion: 2
+    m_Bits: 128
+  _wallcheckdis: 0.79
+  _walljumpDirection: {x: 5, y: 7}
+--- !u!114 &3424620035708267439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2263963073068865181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c504f934006b73342ba7fd1071afa3b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

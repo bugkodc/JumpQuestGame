@@ -5,48 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    [SerializeField] public GameObject _pausemenu;
-    bool _paused = true;
-    private void Update()
+    [SerializeField] public GameObject _Level;
+    [SerializeField] public GameObject _Setting;
+    public void Play()
     {
-        Inputsystem();
+        _Level.SetActive(true);
     }
-    void Inputsystem()
+    public void Setting()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && _paused)
-        {
-            PauseMenu();
-            _paused = false;
-        }
-        else if (Input.GetKeyDown(KeyCode.Escape) && !_paused)
-        {
-            Resume();
-            _paused = true;
-        }
+        _Setting.SetActive(true);
     }
-    public void PauseMenu()
+    public void Quit()
     {
-        _pausemenu.SetActive(true);
-        Time.timeScale = 0;
+        Application.Quit();
     }
-    public void Home()
+    public void BackLevel()
     {
-        SceneManager.LoadScene("Main Menu");
-        Time.timeScale = 1;
+        _Level.SetActive(false);
     }
-    public void Resume()
+    public void Backsetting()
     {
-        _pausemenu.SetActive(false);
-        Time.timeScale = 1;
+        _Setting.SetActive(false);
     }
-    public void Restart()
+    public void Level1()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1;
-    }
-    public void Nextlevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        Time.timeScale = 1;
+        SceneManager.LoadScene("Tutorial");
     }
 }

@@ -31,6 +31,12 @@ public class PlayerMoving : MonoBehaviour
     [SerializeField] public Vector2 _walljumpDirection;
     private Rigidbody2D _rb;
     private Animator _animat;
+    [Header("Audio")]
+    Audiomanager _audiomanager;
+    private void Awake()
+    {
+        _audiomanager = GameObject.FindGameObjectWithTag("Audio").GetComponent<Audiomanager>();
+    }
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -43,7 +49,7 @@ public class PlayerMoving : MonoBehaviour
         UpAnimator();
         checkInput();
         if (_isground)
-        {
+        {        
             _canmove = true;
             _canDoublejump = true;
         }
@@ -59,23 +65,31 @@ public class PlayerMoving : MonoBehaviour
     private void checkInput()
     { 
         if (_canmove) _input = Input.GetAxisRaw("Horizontal");
-        if (Input.GetButtonDown("JUMP")) jump();
+        if (Input.GetButtonDown("JUMP"))
+        {
+            jump();
+        }
         if (Input.GetAxis("Vertical") < 0) _canWallSliding = false;
     }
     #endregion
     #region jump
     void jump()
     {
-        if(_wallSliding)
+        if (_wallSliding)
         {
             Walljump();
             _canmove = true;
         }
-        else if (_isground) _rb.velocity = new Vector2(_rb.velocity.x, _powjump);
+        else if (_isground)
+        {
+            _audiomanager.PlaySFX(_audiomanager._jump);
+            _rb.velocity = new Vector2(_rb.velocity.x, _powjump);
+        }
         else if (_canDoublejump)
         {
+            _audiomanager.PlaySFX(_audiomanager._jump);
             _canmove = true;
-            _canDoublejump=false;
+            _canDoublejump = false;
             _rb.velocity = new Vector2(_rb.velocity.x, _powjump);
         }
         _canWallSliding = false;
