@@ -10,6 +10,9 @@ TagManager:
   - Spikes
   - OBSTACLE
   - Audio
+  - itemAp
+  - itemBana
+  - itemChere
   layers:
   - Default
   - TransparentFX
@@ -20,7 +23,7 @@ TagManager:
   - tilemap
   - wall
   - player
-  - 
+  - item
   - 
   - 
   - 

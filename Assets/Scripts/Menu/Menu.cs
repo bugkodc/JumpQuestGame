@@ -48,6 +48,7 @@ public class Menu : MonoBehaviour
     }
     public void Quit()
     {
+        Debug.Log("can");
         Application.Quit();
     }
     public void BackLevel()

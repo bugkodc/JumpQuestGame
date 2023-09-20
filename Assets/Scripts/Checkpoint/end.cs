@@ -10,6 +10,9 @@ public class end : MonoBehaviour
     Animator _anim;
     [Header("Audio")]
     Audiomanager _audiomanager;
+    [SerializeField] private int _countAP;
+    [SerializeField] private int _countBaNa;
+    [SerializeField] private int _countCheRe;
     private void Awake()
     {
         _anim = GetComponent<Animator>();
@@ -20,8 +23,11 @@ public class end : MonoBehaviour
     {
         if (collision.CompareTag("player"))
         {
-            _audiomanager.PlaySFX(_audiomanager._winner);
-            Nextlevel();
+            if (_PlayerController._countAp == _countAP && _PlayerController._countBana == _countBaNa && _PlayerController._countChere == _countCheRe)
+            {
+                _audiomanager.PlaySFX(_audiomanager._winner);
+                Nextlevel();
+            }
         }
     }
     public void Nextlevel()
