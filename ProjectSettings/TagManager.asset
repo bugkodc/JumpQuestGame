@@ -13,6 +13,7 @@ TagManager:
   - itemAp
   - itemBana
   - itemChere
+  - Health
   layers:
   - Default
   - TransparentFX

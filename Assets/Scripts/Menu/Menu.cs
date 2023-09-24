@@ -59,10 +59,20 @@ public class Menu : MonoBehaviour
     {
         _Setting.SetActive(false);
     }
+    #region level
     public void Level1()
     {
         SceneManager.LoadScene("Tutorial");
     }
+    public void Level2()
+    {
+        SceneManager.LoadScene("Tutorial 1");
+    }
+    public void Level3()
+    {
+        SceneManager.LoadScene("Tutorial 2");
+    }
+    #endregion
     public void SettingGraphics()
     {
         _Settinggraphics.SetActive(true);

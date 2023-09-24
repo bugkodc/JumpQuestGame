@@ -7,7 +7,6 @@ public class end : MonoBehaviour
     PlayerController _PlayerController;
     [SerializeField] public GameObject _netxmenu;
 
-    Animator _anim;
     [Header("Audio")]
     Audiomanager _audiomanager;
     [SerializeField] private int _countAP;
@@ -15,7 +14,6 @@ public class end : MonoBehaviour
     [SerializeField] private int _countCheRe;
     private void Awake()
     {
-        _anim = GetComponent<Animator>();
         _PlayerController = GameObject.FindGameObjectWithTag("player").GetComponent<PlayerController>();
         _audiomanager = GameObject.FindGameObjectWithTag("Audio").GetComponent<Audiomanager>();
     }

@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.VirtualTexturing;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerController : MonoBehaviour
 {
@@ -31,6 +32,10 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _checkpoint = transform.position;
+        _image.fillAmount = _healplayer;
+    }
+    private void Update()
+    {
         _image.fillAmount = _healplayer;
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -68,6 +73,14 @@ public class PlayerController : MonoBehaviour
             _countitemChere.text = "X" + _countChere;
             Destroy(collision.gameObject);
         }
+        if (collision.CompareTag("Health"))
+        {
+            if (_healplayer < 0.3f)
+            {
+                _healplayer = _healplayer + 0.1f;
+                Destroy(collision.gameObject);
+            }
+        }
 
     }
     #region update_checkpoint.
@@ -88,10 +101,8 @@ public class PlayerController : MonoBehaviour
     {
         _rigidbody.simulated = false;
         _rigidbody.velocity = new Vector2(0, 0);
-        transform.localScale = new Vector3(0, 0, 0);
         yield return new WaitForSeconds(duration);
-        transform.position = _checkpoint;
-        transform.localScale = new Vector3(1, 1, 1);
+        transform.position = _checkpoint; 
         _rigidbody.simulated = true;
     }
     #endregion
