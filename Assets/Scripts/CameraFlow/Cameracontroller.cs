@@ -20,5 +20,6 @@ public class Cameracontroller : MonoBehaviour
         Vector3 _tagetposition = _tagetplayer.position + _posoffset;
         _tagetposition = new Vector3(Mathf.Clamp(_tagetposition.x,_Xlimit.x , _Xlimit.y), Mathf.Clamp(_tagetposition.y,_Ylimit.x , _Ylimit.y),-10);
         transform.position = Vector3.SmoothDamp(transform.position, _tagetposition, ref _velocity, _soomthtime);
+        // velocity damp flow player 
     }
 }

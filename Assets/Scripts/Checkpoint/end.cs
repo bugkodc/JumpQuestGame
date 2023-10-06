@@ -6,7 +6,6 @@ public class end : MonoBehaviour
 {
     PlayerController _PlayerController;
     [SerializeField] public GameObject _netxmenu;
-
     [Header("Audio")]
     Audiomanager _audiomanager;
     [SerializeField] private int _countAP;
@@ -24,6 +23,7 @@ public class end : MonoBehaviour
             if (_PlayerController._countAp == _countAP && _PlayerController._countBana == _countBaNa && _PlayerController._countChere == _countCheRe)
             {
                 _audiomanager.PlaySFX(_audiomanager._winner);
+
                 Nextlevel();
             }
         }

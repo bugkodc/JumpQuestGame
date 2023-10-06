@@ -45,6 +45,10 @@ public class pausemenu : MonoBehaviour
     }
     public void Nextlevel()
     {
+        if (SceneManager.GetActiveScene().buildIndex + 1 >= SceneManager.sceneCountInBuildSettings)
+        {
+            Home();
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         Time.timeScale = 1;
     }

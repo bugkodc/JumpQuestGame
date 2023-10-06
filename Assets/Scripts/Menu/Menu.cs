@@ -70,6 +70,7 @@ public class Menu : MonoBehaviour
     }
     public void Level3()
     {
+
         SceneManager.LoadScene("Tutorial 2");
     }
     #endregion
